@@ -1,12 +1,12 @@
 {
-    "name": "joedixon/laravel-translation",
+    "name": "oragroup-team/laravel-translation",
     "description": "A tool for managing all of your Laravel translations",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Joe Dixon",
-            "email": "hello@joedixon.co.uk"
+            "name": "Tharavink Prasad Sivarajan",
+            "email": "tharavink619@gmail.com"
         }
     ],
     "require": {},

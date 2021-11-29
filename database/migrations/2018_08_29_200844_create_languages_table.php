@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use JoeDixon\Translation\Language;
 
-class CreateLanguagesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -15,13 +15,12 @@ class CreateLanguagesTable extends Migration
      */
     public function up()
     {
-        Schema::connection(config('translation.database.connection'))
-            ->create(config('translation.database.languages_table'), function (Blueprint $table) {
-                $table->increments('id');
-                $table->string('name')->nullable();
-                $table->string('language');
-                $table->timestamps();
-            });
+        Schema::create(config('translation.database.languages_table'), function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name')->nullable();
+            $table->string('language');
+            $table->timestamps();
+        });
 
         $initialLanguages = array_unique([
             config('app.fallback_locale'),
@@ -42,7 +41,6 @@ class CreateLanguagesTable extends Migration
      */
     public function down()
     {
-        Schema::connection(config('translation.database.connection'))
-            ->dropIfExists(config('translation.database.languages_table'));
+        Schema::dropIfExists(config('translation.database.languages_table'));
     }
-}
+};
